@@ -7,4 +7,6 @@ import java.lang.annotation.RetentionPolicy;
 public @interface ActiveRecordEntity {
     String tablename();
     String keyColumnName();
+
+    String tableName();
 }

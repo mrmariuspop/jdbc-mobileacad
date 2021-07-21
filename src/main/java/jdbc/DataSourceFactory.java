@@ -8,7 +8,7 @@ public class DataSourceFactory {
     private Connection connection;
 
 
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db-school","root","root");
         connection.setAutoCommit(false);
