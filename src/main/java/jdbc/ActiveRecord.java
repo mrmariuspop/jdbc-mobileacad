@@ -48,7 +48,7 @@ public abstract class ActiveRecord {
         ActiveRecordEntity arAnnotation = (ActiveRecordEntity) c.getAnnotation(ActiveRecordEntity.class);
         DataSourceFactory factory = new DataSourceFactory();
         Connection conn = DataSourceFactory.getConnection();
-        PreparedStatement st = conn.prepareStatement("select * from " + arAnnotation.tableName() + " where id = ?");
+        PreparedStatement st = conn.prepareStatement("select * from " + arAnnotation.tablename() + " where id = ?");
         st.setInt(1, id);
         ResultSet res = st.executeQuery();
         if(!res.isBeforeFirst()){
@@ -65,7 +65,7 @@ public abstract class ActiveRecord {
                 if(f.getType()==byte.class){
                     f.setByte(this, res.getByte(i));
                 } else
-                if(f.getType()==int.class){
+                if(f.getType()==String.class){
                     f.set(this, res.getString(i));
                 }  else
                 if(f.getType()==Date.class){
